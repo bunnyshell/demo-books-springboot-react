@@ -36,6 +36,8 @@ public class BookController {
                 .findById(bookId)
                 .orElseThrow(() -> new ResourceNotFoundException("Book not found on :: " + bookId));
 
+        book.setTitle(book.getTitle() + "(" + book.getId() + ")");
+            
         return ResponseEntity.ok(book);
     }
 
